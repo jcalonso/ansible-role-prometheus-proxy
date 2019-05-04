@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: prometheus-proxy
   author: Juan Carlos Alonso
   description: A role that installs Prometheus Proxy
   license: "license (BSD, MIT)"
