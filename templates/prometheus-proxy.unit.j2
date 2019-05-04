@@ -1,0 +1,12 @@
+[Unit]
+Description=Runs a Prometheus Proxy that receives metrics from external nodes
+
+[Service]
+WorkingDirectory={{ prometheus_proxy_install_dir }}
+ExecStart=/usr/bin/java -jar {{ prometheus_proxy_install_dir }}/prometheus-proxy.jar
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

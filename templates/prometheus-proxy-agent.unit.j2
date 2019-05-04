@@ -1,0 +1,12 @@
+[Unit]
+Description=Runs a Prometheus Proxy agent that ships metrics to main Prometheus instance
+
+[Service]
+WorkingDirectory={{ prometheus_proxy_install_dir }}
+ExecStart=/usr/bin/java -jar {{ prometheus_proxy_install_dir }}/prometheus-proxy-agent.jar --config {{ prometheus_proxy_config_dir }}/apps.conf
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

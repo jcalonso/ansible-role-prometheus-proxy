@@ -1,0 +1,61 @@
+#! /bin/sh
+# /etc/init.d/prometheus-proxy
+#
+# prometheus-proxy init script.
+#
+# @author Juan Carlos Alonso (@jcalonso)
+
+### BEGIN INIT INFO
+# Provides:          prometheus-proxy
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start prometheus-proxy at boot time.
+# Description:       Enable prometheus-proxy.
+### END INIT INFO
+
+PID=/var/run/prometheus-proxy.pid
+LOCK=/var/lock/prometheus-proxy.lock
+USER=nobody
+BIN={{ prometheus_proxy_install_dir }}/prometheus-proxy-agent.jar
+DAEMONIZE_BIN={{ prometheus-proxy_daemonize_bin_path }}
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting prometheus-proxy."
+    $DAEMONIZE_BIN -p $PID -l $LOCK -u $USER $BIN
+    ;;
+  stop)
+    if [ -f $PID ]; then
+      echo "Stopping prometheus-proxy.";
+      kill -TERM $(cat $PID);
+      rm -f $PID;
+    else
+      echo "prometheus-proxy is not running.";
+    fi
+    ;;
+  restart)
+    echo "Restarting prometheus-proxy."
+    if [ -f $PID ]; then
+      kill -TERM $(cat $PID);
+      rm -f $PID;
+    fi
+    $DAEMONIZE_BIN -p $PID -l $LOCK -u $USER $BIN
+    ;;
+  status)
+    if [ -f $PID ]; then
+      echo "prometheus-proxy is running.";
+    else
+      echo "prometheus-proxy is not running.";
+      exit 3
+    fi
+    ;;
+  *)
+    echo "Usage: /etc/init.d/prometheus-proxy {start|stop|status|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

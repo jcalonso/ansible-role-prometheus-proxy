@@ -1,0 +1,8 @@
+{
+    "agent": {
+      "proxy": {
+         "hostname": "{{ prometheus_proxy_host }}"
+      },
+      "pathConfigs": {{ prometheus_proxy_targets | to_json }}
+    }
+}

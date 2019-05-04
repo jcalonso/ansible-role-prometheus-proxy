@@ -1,0 +1,11 @@
+---
+# Prometheus Proxy
+prometheus_proxy_enabled: true
+prometheus_proxy_agent_enabled: false
+prometheus_proxy_host: "{{ prometheus_proxy_host | mandatory }}"
+prometheus_proxy_install_dir: /opt/prometheus-proxy
+prometheus_proxy_config_dir: /etc/prometheus-proxy
+prometheus_proxy_base_bin_url: https://github.com/pambrose/prometheus-proxy/releases/download
+prometheus_proxy_version: "1.3.10"
+prometheus_proxy_agent_bin_url: "{{ prometheus_proxy_base_bin_url }}/{{ prometheus_proxy_version}}/prometheus-agent.jar"
+prometheus_proxy_bin_url: "{{ prometheus_proxy_base_bin_url }}/{{ prometheus_proxy_version}}/prometheus-proxy.jar"
