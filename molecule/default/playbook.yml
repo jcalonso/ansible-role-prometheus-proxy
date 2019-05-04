@@ -23,4 +23,4 @@
 
   roles:
     - role: geerlingguy.java
-    - role: jcalonso.ansible-role-prometheus-proxy
+    - role: jcalonso.prometheus-proxy
