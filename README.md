@@ -1,5 +1,7 @@
 # Ansible Role: Prometheus Proxy 
 
+[![Build Status](https://travis-ci.org/jcalonso/ansible-role-prometheus-proxy.svg?branch=master)](https://travis-ci.org/jcalonso/ansible-role-prometheus-proxy)
+
 Install a Prometheus Proxy (agent and/or proxy) using Ansible.
 Prometheus Proxy allows you to send metrics to a Prometheus instance when it is behind a firewall.
 
