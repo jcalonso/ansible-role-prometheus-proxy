@@ -24,6 +24,10 @@ If you want to install the agent (normally outside the Prometheus network):
 prometheus_proxy_enabled: false
 prometheus_proxy_agent_enabled: true
 prometheus_proxy_host: "prometheus.example.com"
+prometheus_proxy_targets:
+- name: app1
+  path: app1_metrics
+  url: http://app1.local:9100/metrics
 ```
 
 Check `defaults/main.yml` for other available variables/

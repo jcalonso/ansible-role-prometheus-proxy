@@ -9,3 +9,4 @@ prometheus_proxy_base_bin_url: https://github.com/pambrose/prometheus-proxy/rele
 prometheus_proxy_version: "1.3.10"
 prometheus_proxy_agent_bin_url: "{{ prometheus_proxy_base_bin_url }}/{{ prometheus_proxy_version}}/prometheus-agent.jar"
 prometheus_proxy_bin_url: "{{ prometheus_proxy_base_bin_url }}/{{ prometheus_proxy_version}}/prometheus-proxy.jar"
+prometheus_proxy_targets: []
