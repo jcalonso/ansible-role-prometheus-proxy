@@ -42,6 +42,19 @@ geerlingguy.java
     - jcalonso.prometheus-proxy
 ```
 
+## Tests
+
+Install Molecule and docker:
+```
+sudo pip install molecule docker
+```
+
+Run molecule tests:
+
+```
+molecule test
+```
+
 ## License
 
 MIT/BSD
